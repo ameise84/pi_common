@@ -5,6 +5,7 @@ package safe
 import (
 	"errors"
 	"fmt"
+	"github.com/ameise84/pi_common/log"
 	"runtime/debug"
 )
 
@@ -15,7 +16,7 @@ func RecoverPanic(h PanicHook, where string) {
 		if h != nil {
 			h.OnPanic(errors.New(msg))
 		} else {
-			_gLogger.Error(msg)
+			log.Error(msg)
 		}
 	}
 }
